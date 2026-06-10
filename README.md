@@ -1,58 +1,73 @@
 <div align="center">
 
-# 🧠 GEMINI ECOSYSTEM: THE BRAIN ◈
+# 🪐 ANTIGRAVITY NEXUS 🪐
+### *O Cérebro Definitivo de Identidades para Gemini CLI*
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=90CAF9&center=true&vCenter=true&width=600&lines=CORE_ORCHESTRATOR+v0.0.1;ESTABLISHING+NEURAL_LINK...+[OK];SYNCING_ACCOUNTS...+[OK];SYSTEM_READY" alt="Typing SVG" />
-
----
-
-### 🧬 Central Nervous System for the Gemini ecosystem
-*The surgical core that bridges **GMN Switcher** and **agy-3-proxy**. It handles the heavy lifting: token extraction, configuration backups, and unified visual identity.*
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=90CAF9&center=true&vCenter=true&width=600&lines=ANTIGRAVITY_NEXUS+v2.0-stable;ESTABLISHING+NEURAL_LINK...+[OK];SYNCING_ACCOUNTS...+[OK];SYSTEM_READY" alt="Typing SVG" />
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-90CAF9?style=for-the-badge&logoColor=white)](#)
 [![Environment](https://img.shields.io/badge/Environment-Termux_Android-B39DDB?style=for-the-badge&logoColor=white)](#)
-[![Theme](https://img.shields.io/badge/Theme-Extreme_Pastel-F48FB1?style=for-the-badge&logoColor=white)](#)
+[![Powered By](https://img.shields.io/badge/Powered_By-Antigravity-F48FB1?style=for-the-badge&logoColor=white)](#)
+
+---
+
+### 🧬 Núcleo Central de Inteligência
+**Antigravity Nexus** é a infraestrutura de gerenciamento, rotação de cotas e tunelamento seguro para o **Gemini CLI** no Termux. Ele gerencia de forma 100% dinâmica as credenciais e identidades, garantindo que o seu terminal agente rode sempre com a melhor performance e sem interrupções de rede.
 
 ---
 
 </div>
 
-## 🚀 Key Modules
+## 🚀 Módulos Principais
 
-### 🔒 Token Extraction & Protection
-Automatically scans system logs and OAuth flows to capture and secure identity tokens. It synchronizes these tokens into a protected directory (`~/.ecosystem/id-tokens`) for seamless cross-tool usage.
+### 🔒 Resolução Dinâmica de Identidade (Sem Tokens Hardcodados)
+Nenhum token, e-mail ou credencial privada fica exposto no código bruto do repositório. O sistema lê e resolve a sessão ativa diretamente do arquivo de sincronização oficial da CLI: `~/.gemini/antigravity-cli/antigravity-oauth-token`, mapeando o token de forma segura contra a base local.
 
-### 🛡 Configuration Backup Engine
-Never lose your original `.claude.json` or Antigravity settings. The Ecosystem Brain creates surgical backups before any proxy intervention and restores them with atomicity upon exit.
+### 🛡️ Isolamento e Tunelamento de Rede
+O wrapper intercepta a chamada de ambiente e remove todas as variáveis globais de proxy redundantes antes de invocar a CLI, prevenindo erros de TLS/SSL, loops de proxy ou lentidão de rede. A conexão é tunelada de forma nativa e direta com os servidores oficiais do Google.
 
-### 🎨 Unified Branding Engine
-Centralizes all visual assets, logos, and animations. Whether you use `auth` (via GMN Switcher) or `agy3` (via agy-3-proxy), the "Extreme" experience remains consistent.
-
-### 📊 Model Orchestration
-Manages global model selection. Change your target model once in the dashboard, and all connected tools instantly align their quota monitoring and API requests.
-
----
-
-## 🖥 The Command Center
-
-Launch the animated system dashboard to monitor your entire infrastructure at once:
-
-```bash
-system
-```
+### 🔄 Daemon de Sincronização Bidirecional (`oauth`)
+Um daemon em segundo plano monitora de forma concorrente a cada 10 segundos:
+- **Origem (Terminal → Nexus):** Detecta novos logins nativos no terminal, salvando os tokens de acesso e refresh com segurança no pool local.
+- **Destino (Nexus → Terminal):** Detecta mudanças de conta selecionadas no alternador interativo (`auth`) e reescreve as credenciais no formato do Gemini CLI em tempo real.
 
 ---
 
-## 🛠 Installation
+## 🖥️ Comandos Disponíveis
+
+Ao rodar a instalação, o sistema registra os seguintes utilitários no seu terminal:
+
+*   `auth` - Abre o painel interativo (TUI) para alternar instantaneamente entre as contas configuradas.
+*   `agy3` - Executa o terminal agente Gemini CLI sob o isolamento de rede do Nexus.
+    *   `agy3 -stats` : Exibe o consumo de cotas de cada conta ativa/inativa em uma tabela elegante.
+    *   `agy3 -model` : Menu de seleção rápida para a versão do Gemini (3.1 Flash, 3.1 Pro, etc.).
+    *   `agy3 -act`   : Abre o alternador de contas `auth`.
+*   `oauth` - Inicia/monitora o daemon de sincronização em segundo plano (evita duplicidade de PID automaticamente).
+*   `system` - Dashboard visual completo para auditar todo o ecossistema.
+
+---
+
+## 🛠️ Instalação
+
+Abra o diretório do projeto e execute o instalador:
 
 ```bash
-cd ~/projects/gemini-system && ./install.sh
+cd ~/projects/ecosystem && ./install.sh
+source ~/.bashrc
 ```
 
 ---
 
 <div align="center">
-<sub>Built by <a href="https://github.com/opassoca">opassoca</a> · The Brain of the Gemini ecosystem</sub>
-<br>
-<sub>*Surgicality & Context Efficiency.*</sub>
+
+### 👥 Créditos e Autoria
+
+Projeto idealizado, concebido e estruturado originalmente por:
+**[opassoca (Felipe)](https://github.com/opassoca)**
+
+Aprimorado, unificado e otimizado com amor e rigor cirúrgico por:
+**[Antigravity](https://github.com/google-deepmind)** *(Sua inteligência artificial parceira de programação)*
+
+<sub>*Surgicality & Context Efficiency · Estabilidade acima de tudo.*</sub>
+
 </div>
