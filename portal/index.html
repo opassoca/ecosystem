@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Ecosystem | Extreme Orchestration</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&display=swap');
+
+        :root {
+            --accent: #D7AFFF;
+            --secondary: #87D7D7;
+            --blue: #87AFFF;
+            --pink: #F48FB1;
+            --bg: #0d1117;
+            --card-bg: #161b22;
+            --border: #30363d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Fira Code', monospace;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #c9d1d9;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Binary Background */
+        .binary-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.05;
+            pointer-events: none;
+            overflow: hidden;
+            font-size: 12px;
+            color: var(--secondary);
+            user-select: none;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        .logo-container {
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--blue), var(--accent), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+        }
+
+        .typing-container {
+            height: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .typing-text {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            display: inline-block;
+            border-right: 3px solid var(--secondary);
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 4s steps(40, end), blink .75s step-end infinite;
+        }
+
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink { from, to { border-color: transparent } 50% { border-color: var(--secondary); } }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+            font-size: 0.85rem;
+            color: var(--blue);
+        }
+
+        /* Project Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 6rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(215, 175, 255, 0.1);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #8b949e;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            color: var(--bg);
+            box-shadow: 0 0 20px rgba(215, 175, 255, 0.4);
+        }
+
+        /* Extreme Section */
+        .extreme-section {
+            background: linear-gradient(180deg, transparent, rgba(135, 175, 255, 0.05));
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 4rem;
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .extreme-section h3 {
+            font-size: 2rem;
+            color: var(--pink);
+            margin-bottom: 1.5rem;
+        }
+
+        .code-box {
+            background: #010409;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            display: inline-block;
+            text-align: left;
+            margin-top: 2rem;
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: #8b949e;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--blue);
+        }
+
+        @media (max-width: 768px) {
+            .logo-container { font-size: 2.5rem; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="binary-bg" id="binary"></div>
+
+    <div class="container">
+        <header>
+            <div class="logo-container">◈ GEMINI ECOSYSTEM ◈</div>
+            <div class="typing-container">
+                <div class="typing-text">ESTABLISHING_NEURAL_LINK... [OK]</div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">v2.0.0-EXTREME</div>
+                <div class="stat-item">10 LANGUAGES</div>
+                <div class="stat-item">UNIVERSAL BINARY</div>
+            </div>
+        </header>
+
+        <main>
+            <div class="grid">
+                <!-- GMN Switcher -->
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h2>GMN Switcher</h2>
+                    <p>O orquestrador cirúrgico de identidades. Troque entre dezenas de contas OAuth e chaves de API instantaneamente com monitoramento de cota em tempo real.</p>
+                    <a href="https://github.com/opassoca/gmn-switcher" class="btn">Explorar Projeto</a>
+                </div>
+
+                <!-- agy-3-proxy -->
+                <div class="card">
+                    <div class="card-icon">♊</div>
+                    <h2>agy-3-proxy</h2>
+                    <p>Interface avançada para o Antigravity CLI. Adiciona camadas de segurança, backup automático e troca inteligente de identidades (Smart-Switch).</p>
+                    <a href="https://github.com/opassoca/agy-3-proxy" class="btn">Explorar Projeto</a>
+                </div>
+
+                <!-- ecosystem -->
+                <div class="card">
+                    <div class="card-icon">🧠</div>
+                    <h2>The Ecosystem</h2>
+                    <p>O cérebro central. Gerencia a extração de tokens, sincronização global e a identidade visual "Extreme" de todas as ferramentas.</p>
+                    <a href="https://github.com/opassoca/ecosystem" class="btn">Explorar Núcleo</a>
+                </div>
+            </div>
+
+            <section class="extreme-section">
+                <h3>A Operação "Extreme"</h3>
+                <p>Projetado para Termux e ambientes de alto desempenho, o ecossistema Gemini elimina a necessidade de configuração manual e maximiza o uso de tokens.</p>
+                
+                <div class="code-box">
+                    <span style="color: #6e7681;"># Instalação Rápida</span><br>
+                    <span style="color: var(--accent);">curl</span> -sSL ecosystem.sh | <span style="color: var(--accent);">bash</span><br><br>
+                    <span style="color: #6e7681;"># Comandos Globais</span><br>
+                    <span style="color: var(--blue);">auth</span> --list <span style="color: #6e7681;"># Ver contas</span><br>
+                    <span style="color: var(--blue);">agy3</span> -smart <span style="color: #6e7681;"># Início Inteligente</span>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="social-links">
+                <a href="#">Telegram</a>
+                <a href="#">Instagram</a>
+                <a href="#">GitHub</a>
+            </div>
+            <p>Built by <strong>@opassoca</strong> · Surgicality & Context Efficiency</p>
+            <p style="margin-top: 10px; font-size: 0.7rem; color: #484f58;">© 2026 Extreme Mobile/AI Architecture</p>
+        </footer>
+    </div>
+
+    <script>
+        const binaryContainer = document.getElementById('binary');
+        function updateBinary() {
+            const rows = Math.ceil(window.innerHeight / 15);
+            const cols = Math.ceil(window.innerWidth / 10);
+            let content = '';
+            for (let i = 0; i < rows; i++) {
+                for (let j = 0; j < cols; j++) {
+                    content += Math.random() > 0.5 ? '1' : '0';
+                }
+                content += '<br>';
+            }
+            binaryContainer.innerHTML = content;
+        }
+        updateBinary();
+        window.addEventListener('resize', updateBinary);
+        
+        // Dynamic binary effect
+        setInterval(() => {
+            const lines = binaryContainer.innerHTML.split('<br>');
+            const randomLine = Math.floor(Math.random() * lines.length);
+            let line = lines[randomLine].split('');
+            for(let i=0; i<5; i++) {
+                const pos = Math.floor(Math.random() * line.length);
+                line[pos] = line[pos] === '1' ? '0' : '1';
+            }
+            lines[randomLine] = line.join('');
+            binaryContainer.innerHTML = lines.join('<br>');
+        }, 100);
+    </script>
+</body>
+</html>
